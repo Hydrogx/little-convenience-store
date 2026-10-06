@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-hidden="true" focusable="false">
+  <title>orange juice box</title>
+  <rect x="28" y="28" width="40" height="52" rx="7" fill="#ff9f45" stroke="#d97519" stroke-width="3"/>
+  <path d="M55 28 66 10" stroke="#37b5c9" stroke-width="5" stroke-linecap="round"/>
+  <rect x="34" y="40" width="28" height="20" rx="4" fill="#ffffff" opacity="0.75"/>
+  <circle cx="48" cy="50" r="6" fill="#ffd93d"/>
+</svg>

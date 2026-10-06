@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#ffd93d" />
+    <meta
+      name="description"
+      content="小小便利店 —— 面向 5-8 岁儿童的模拟经营与数学启蒙游戏：认识颜色、形状、数量，练习加法、减法、乘法和找零钱。"
+    />
+    <title>小小便利店 · Little Convenience Store</title>
+
+    <!-- 资源分开载入：样式、脚本、图标各自独立文件，不使用单文件内联写法 -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/home.css" />
+    <link rel="stylesheet" href="styles/game.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-region" data-i18n="a11y.skipToContent">跳到主要内容</a>
+
+    <div id="app" class="app" data-screen="boot">
+      <div class="boot-splash" role="status">
+        <span class="boot-splash__emoji" aria-hidden="true">🏪</span>
+        <p class="boot-splash__text">正在打开便利店… / Opening the store…</p>
+      </div>
+    </div>
+
+    <!-- 屏幕阅读器实时播报区 -->
+    <p id="live-region" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+
+    <!-- 非模块脚本：单纯用于在缺少开发服务器时给出友好提示 -->
+    <script src="scripts/boot-check.js" defer></script>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

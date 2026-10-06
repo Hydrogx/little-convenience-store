@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-hidden="true" focusable="false">
+  <title>square cheese</title>
+  <rect x="14" y="24" width="68" height="52" rx="8" fill="#ffd93d" stroke="#d9a800" stroke-width="3"/>
+  <circle cx="32" cy="42" r="6" fill="#ffe89a" stroke="#e0b81f" stroke-width="2"/>
+  <circle cx="58" cy="38" r="4.5" fill="#ffe89a" stroke="#e0b81f" stroke-width="2"/>
+  <circle cx="46" cy="60" r="5.5" fill="#ffe89a" stroke="#e0b81f" stroke-width="2"/>
+  <circle cx="68" cy="60" r="4" fill="#ffe89a" stroke="#e0b81f" stroke-width="2"/>
+</svg>

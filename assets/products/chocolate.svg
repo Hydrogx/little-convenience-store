@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-hidden="true" focusable="false">
+  <title>square chocolate bar</title>
+  <rect x="14" y="20" width="68" height="58" rx="8" fill="#8b5e3c" stroke="#5d3c22" stroke-width="3"/>
+  <path d="M14 40h68M14 58h68M36 20v58M60 20v58" stroke="#5d3c22" stroke-width="2.5" opacity="0.75"/>
+  <rect x="20" y="26" width="12" height="10" rx="2" fill="#b07d4f"/>
+  <rect x="42" y="44" width="12" height="10" rx="2" fill="#b07d4f"/>
+  <rect x="66" y="62" width="12" height="10" rx="2" fill="#b07d4f"/>
+</svg>

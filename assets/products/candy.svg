@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-hidden="true" focusable="false">
+  <title>yellow candy</title>
+  <path d="M30 48 12 34v28z" fill="#ffe066" stroke="#d9a800" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M66 48 84 34v28z" fill="#ffe066" stroke="#d9a800" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="48" cy="48" r="22" fill="#ffd93d" stroke="#d9a800" stroke-width="3"/>
+  <path d="M34 40c6 4 6 12 0 16M62 40c-6 4-6 12 0 16" fill="none" stroke="#e0a800" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="42" cy="42" r="4" fill="#ffffff" opacity="0.75"/>
+  <circle cx="48" cy="48" r="13" fill="#ffe066" opacity="0.55"/>
+</svg>

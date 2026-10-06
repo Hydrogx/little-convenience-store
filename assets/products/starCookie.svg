@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-hidden="true" focusable="false">
+  <title>pink star cookie</title>
+  <path d="M48 10 60 38 90 42 68 63 73 92 48 78 23 92 28 63 6 42 36 38z" fill="#ff9ecd" stroke="#e06a9e" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="40" cy="44" r="4" fill="#c94f83"/>
+  <circle cx="58" cy="50" r="4" fill="#c94f83"/>
+  <circle cx="48" cy="66" r="4" fill="#c94f83"/>
+  <circle cx="66" cy="34" r="3" fill="#c94f83"/>
+</svg>

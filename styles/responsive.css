@@ -1,0 +1,305 @@
+/* ==========================================================================
+   响应式布局
+   验收目标（PRD 18.2）：桌面宽屏、普通笔记本、手机竖屏、手机横屏、平板
+   都不出现横向滚动、按钮重叠、文字溢出、数字键盘被遮挡。
+   ========================================================================== */
+
+/* ------------------------- 小手机：更紧凑、字仍要大 ------------------------ */
+
+@media (max-width: 420px) {
+  body {
+    font-size: 17px;
+  }
+
+  .topbar {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .topbar__title {
+    font-size: 17px;
+  }
+
+  .topbar__stats {
+    gap: 6px;
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 2px;
+  }
+
+  .topbar__difficulty {
+    font-size: 13px;
+    padding: 3px 10px;
+  }
+
+  .stat-chip {
+    padding: 4px 10px;
+    min-height: 34px;
+    flex: none;
+  }
+
+  .stat-chip__label {
+    display: none;
+  }
+
+  .stat-chip__value {
+    font-size: 16px;
+  }
+
+  .game {
+    padding: 20px 10px 12px;
+    gap: 12px;
+  }
+
+  .home {
+    padding: 12px 10px;
+    gap: 12px;
+  }
+
+  .home__panel,
+  .shelf,
+  .basket,
+  .order-card {
+    padding: 12px;
+  }
+
+  .shelf__grid {
+    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+    gap: 10px;
+  }
+
+  .mode-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .button--huge {
+    font-size: 19px;
+    padding: 14px 20px;
+  }
+
+  .storefront {
+    padding: 62px 12px 14px;
+  }
+
+  .swatch {
+    width: 18px;
+    height: 18px;
+  }
+
+  .color-dot,
+  .shape-badge {
+    font-size: 13px;
+    padding: 2px 8px 2px 3px;
+  }
+
+  .amount__value {
+    font-size: 28px;
+  }
+
+  .keypad__key {
+    min-height: 50px;
+    font-size: 22px;
+  }
+
+  .steps {
+    border-radius: var(--radius);
+  }
+
+  .steps__label {
+    font-size: 12px;
+  }
+}
+
+/* ------------------------------- 较大手机 -------------------------------- */
+
+@media (min-width: 421px) and (max-width: 640px) {
+  .shelf__grid {
+    grid-template-columns: repeat(auto-fill, minmax(144px, 1fr));
+  }
+}
+
+/* ------------------------- 平板及以上：购物篮一行 ------------------------- */
+
+@media (min-width: 700px) {
+  .basket__row {
+    grid-template-columns: auto minmax(0, 1fr) auto auto auto;
+    grid-template-areas: "art info stepper subtotal delete";
+  }
+
+  .basket__row .stepper {
+    justify-self: center;
+  }
+
+  .shelf__grid {
+    grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
+  }
+}
+
+/* --------------------------- 桌面：左右分栏 ------------------------------ */
+
+@media (min-width: 980px) {
+  /* 桌面端：左边是订单和收银台，右上是购物篮（始终看得见，方便把商品拖进去），
+     右下是货架，货架长了就让页面滚动。 */
+  .game {
+    grid-template-columns: minmax(320px, 26rem) minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas:
+      "order    basket"
+      "checkout shelf";
+    align-items: start;
+    gap: 16px;
+  }
+
+  .game__area--checkout {
+    position: sticky;
+    top: 92px;
+  }
+
+  .shelf__grid {
+    grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  }
+
+  .storefront {
+    padding: 78px 22px 22px;
+  }
+
+  .home {
+    padding: 22px;
+    gap: 20px;
+  }
+
+  .home__panel {
+    padding: 22px;
+    gap: 18px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* --------------------- 宽屏：货架更多列、两栏更宽松 ---------------------- */
+
+@media (min-width: 1360px) {
+  .game {
+    grid-template-columns: minmax(360px, 30rem) minmax(0, 1fr);
+  }
+
+  .shelf__grid {
+    grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  }
+}
+
+/* ------------------- 手机横屏：压缩纵向空间，避免遮挡 ------------------- */
+
+@media (orientation: landscape) and (max-height: 620px) {
+  .topbar {
+    position: static;
+    padding: 6px 12px;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  /* 横屏高度紧张：只留数字，把整条顶栏压成一行 */
+  .stat-chip__label {
+    display: none;
+  }
+
+  .stat-chip {
+    padding: 4px 10px;
+    min-height: 38px;
+  }
+
+  .topbar__title {
+    font-size: 17px;
+  }
+
+  .topbar__stats {
+    gap: 6px;
+    flex-wrap: nowrap;
+  }
+
+  .language-switch__button {
+    padding: 6px 10px;
+    font-size: 15px;
+  }
+
+  .game {
+    padding: 18px 12px 10px;
+    gap: 10px;
+  }
+
+  .storefront {
+    padding: 58px 14px 12px;
+    min-height: 0;
+  }
+
+  .storefront__window {
+    min-height: 110px;
+  }
+
+  .product-card__art {
+    max-width: 76px;
+  }
+
+  .shelf__grid {
+    grid-template-columns: repeat(auto-fill, minmax(126px, 1fr));
+  }
+
+  .keypad__key {
+    min-height: 46px;
+  }
+
+  .result__emoji {
+    font-size: 40px;
+  }
+}
+
+/* ------------------ 很矮的窗口：结果页不撑出屏幕外 ------------------ */
+
+@media (max-height: 520px) {
+  .dialog {
+    max-height: 92vh;
+  }
+
+  .result {
+    padding: 14px 12px;
+  }
+}
+
+/* ------------------------------ 触屏优化 -------------------------------- */
+
+@media (hover: none) {
+  .product-card:hover {
+    transform: none;
+  }
+}
+
+/* 电脑端：给鼠标一点悬停反馈（不依赖悬停完成操作） */
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-pop);
+  }
+
+  .button:hover:not(:disabled),
+  .mode-card:hover,
+  .choices__button:hover,
+  .keypad__key:hover,
+  .money-chip--button:hover,
+  .stepper__button:hover,
+  .segmented__button:hover:not(.is-active) {
+    filter: brightness(1.04);
+  }
+}
+
+/* ------------------------------- 打印 ----------------------------------- */
+@media print {
+  .topbar,
+  .game__awning {
+    display: none;
+  }
+}
