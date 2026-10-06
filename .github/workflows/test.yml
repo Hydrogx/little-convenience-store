@@ -1,0 +1,27 @@
+# 每次推送到 main 或提 PR 时，在干净的 CI 环境里跑一遍单元测试。
+# 项目零依赖，所以不需要 npm ci / pnpm install，直接跑 node:test 即可。
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  unit-tests:
+    name: 单元测试（node:test）
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # 同时验证一下最低支持版本和当前常见版本
+        node: ['20', '22', '24']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: 显示环境信息
+        run: node -v && npm -v
+      - name: 运行测试
+        run: npm test

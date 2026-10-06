@@ -1,5 +1,8 @@
 # 小小便利店 · Little Convenience Store
 
+[![tests](https://github.com/Hydrogx/little-convenience-store/actions/workflows/test.yml/badge.svg)](https://github.com/Hydrogx/little-convenience-store/actions/workflows/test.yml)
+[![GitHub Pages](https://img.shields.io/badge/%F0%9F%8E%AE%20%E5%9C%A8%E7%BA%BF%E8%AF%95%E7%8E%A9-GitHub%20Pages-5cc46b)](https://hydrogx.github.io/little-convenience-store/)
+
 面向 **5-8 岁儿童** 的可爱风格网页模拟经营 + 数学启蒙游戏。
 孩子扮演小小便利店店长：按顾客要求挑商品、算总价、收钱、找零钱，在经营过程中练习颜色、形状、数量、加法、减法、乘法和中英文词汇。
 
@@ -7,6 +10,17 @@
 - 同时支持电脑鼠标/键盘和手机触摸
 - 中文 / English 实时切换，切换时不会丢失购物篮和进度
 - 所有数据只保存在浏览器本地，不联网、不注册、无广告、无真实支付
+
+---
+
+## 🎮 在线试玩
+
+> ## <https://hydrogx.github.io/little-convenience-store/>
+>
+> 纯静态、零依赖，点开即玩；手机浏览器也能直接打开。
+> 每次 `git push` 到 `main`，GitHub Pages 会自动重新发布，不需要任何构建步骤。
+
+---
 
 ![首页](docs/screenshots/home-desktop.png)
 
@@ -37,6 +51,9 @@ python3 -m http.server 5173
 启动后访问：
 
 > **http://127.0.0.1:5173/**
+
+只是想让别人试玩的话，不必启动本地服务器，直接用在线版：
+**<https://hydrogx.github.io/little-convenience-store/>**（部署方式见第 9 节）
 
 服务器只做一件事：把工作区里的静态文件按正确的 MIME 类型发出去（`server.mjs`，零依赖）。
 之所以需要一个本地服务器：本项目按要求**把资源分开载入**（多个 CSS、30 多个 ES 模块、每种商品一个 SVG），
@@ -271,3 +288,42 @@ CHROME_PATH=/path/to/chrome BASE_URL=http://127.0.0.1:5173/ node tools/browser-c
 - 不上传儿童游戏数据；所有数据只在当前浏览器的 `localStorage` 里
 - 不接入真实支付；星星和金币只是游戏内的鼓励
 - 家长设置里能一键「清除游戏进度」
+
+---
+
+## 9. 部署到 GitHub Pages（在线试玩）
+
+仓库已经配置成 **从 `main` 分支的根目录直接发布**，没有构建步骤：
+
+| 项 | 值 |
+|---|---|
+| Source | Deploy from a branch |
+| 分支 | `main` |
+| 目录 | `/ (root)` |
+| 访问地址 | <https://hydrogx.github.io/little-convenience-store/> |
+| 触发方式 | 每次 push 到 `main` 自动重新发布 |
+
+为什么不需要 Vite / Webpack 之类的构建：
+
+- 所有引用都是**相对路径**（`styles/…`、`src/…`、`assets/…`），放在 `/仓库名/` 这种子路径下也能正确加载；
+- **没有外部 CDN、没有服务端**，商品插画是仓库里的 SVG 文件，音效用 Web Audio 现场合成；
+- 根目录的 `.nojekyll` 让 Pages 跳过 Jekyll 处理，页面不会被改写。
+
+也就是说：本地怎么写，线上就怎么跑，`git push` 之后几秒钟生效。
+
+想在自己账号下搭一份同样的站点：
+
+1. 打开仓库 **Settings → Pages**
+2. Source 选 **Deploy from a branch**，分支选 `main`，目录选 `/ (root)`，保存
+3. 等 1 分钟左右，访问 `https://<你的用户名>.github.io/<仓库名>/`
+
+或者用命令行（需要已登录的 `gh`）：
+
+```bash
+gh api -X POST repos/{owner}/{repo}/pages \
+  -f 'source[branch]=main' -f 'source[path]=/'
+```
+
+> 注意：`index.html` 用的是 ES 模块，必须通过 http(s) 访问。
+> 这也是**唯一**需要「服务器」的地方 —— GitHub Pages 已经满足了这个条件；
+> 本地直接双击文件用 `file://` 打开时，页面会显示一段中英双语的提示告诉你该运行什么命令。
